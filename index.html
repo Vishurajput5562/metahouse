@@ -1,127 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#070b16">
-<title>Facebook House | Profile Request</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050a16">
+<title>Facebook House · Report Request Demo</title>
 <style>
-:root{--bg:#070b16;--card:#10182a;--card2:#0b1221;--line:#253653;--text:#edf4ff;--muted:#91a3c2;--cyan:#63e6ff;--violet:#a18bff;--green:#62e6b0;--gold:#ffdc8a}
-*{box-sizing:border-box}body{margin:0;color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(ellipse at 15% -10%,#273568 0,transparent 38%),radial-gradient(ellipse at 95% 20%,#12394b 0,transparent 31%),var(--bg);min-height:100vh}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(#5e83ba22 1px,transparent 1px),linear-gradient(90deg,#5e83ba22 1px,transparent 1px);background-size:38px 38px}
-.wrap{width:min(1100px,calc(100% - 30px));margin:auto;position:relative}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.logo{display:flex;align-items:center;gap:11px;font-size:23px;font-weight:900;letter-spacing:-.7px}.logo-icon{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:#07101b;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:0 0 28px #63e6ff26;font-size:19px}.logo em{font-style:normal;color:var(--cyan)}.nav-tag{border:1px solid #285c5c;background:#0c282b;color:#8ff3d2;border-radius:99px;padding:7px 12px;font-size:12px;font-weight:750}
-.hero{text-align:center;padding:55px 0 30px}.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:850}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}h1{font-size:clamp(37px,7vw,68px);line-height:1.02;letter-spacing:-2.8px;margin:16px 0;background:linear-gradient(100deg,#fff 12%,var(--cyan) 54%,var(--violet));background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{max-width:630px;margin:0 auto;color:var(--muted);font-size:16px}.chips{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:21px}.chip{font-size:11px;border:1px solid #293955;background:#0c1425;border-radius:99px;padding:7px 11px;color:#b9c8e3}
-.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:18px;margin:12px 0 22px}.card{background:linear-gradient(150deg,#121c30f5,#0c1322f8);border:1px solid #2a3b59;border-radius:23px;padding:25px;box-shadow:0 25px 70px #0003;backdrop-filter:blur(12px)}.card-title{display:flex;align-items:center;gap:12px;margin-bottom:7px}.icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #2b4963;background:#102335;border-radius:14px;font-size:19px}.card h2{margin:0;font-size:20px;letter-spacing:-.4px}.muted{color:var(--muted)}.desc{font-size:13px;color:var(--muted);margin:0 0 22px}.field-label{display:block;margin:17px 0 8px;font-size:12px;font-weight:800;color:#cfdaee;letter-spacing:.3px}input,select{width:100%;background:#080f1d;color:var(--text);border:1px solid #304361;border-radius:13px;padding:14px 15px;font:inherit;outline:none;transition:.2s}input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 4px #63e6ff12}input::placeholder{color:#637696}.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:15px 16px;border:1px solid #2a3d59;border-radius:15px;background:#0a1220}.price-row b{font-size:13px}.price-row small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.price{font-size:29px;font-weight:900;color:var(--cyan);letter-spacing:-1px}.btn{border:0;border-radius:13px;padding:14px 17px;font:inherit;font-weight:850;cursor:pointer;transition:transform .2s,filter .2s}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.primary{width:100%;margin-top:17px;background:linear-gradient(100deg,var(--cyan),#a8a0ff);color:#07101d;box-shadow:0 10px 28px #63e6ff1c}.secondary{background:#18253b;color:var(--text);border:1px solid #354967}.tiny{font-size:11px;color:var(--muted);margin-top:12px}.side-card{height:100%;display:flex;flex-direction:column}.side-art{height:155px;border:1px solid #29415e;border-radius:17px;background:radial-gradient(circle at 50% 50%,#183c58,#101a30 62%);display:grid;place-items:center;margin:14px 0 18px;overflow:hidden;position:relative}.orbit{width:94px;height:94px;border:1px solid #63e6ff77;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 35px #63e6ff16;position:relative}.orbit:before,.orbit:after{content:"";position:absolute;inset:-17px;border:1px dashed #9b8aff6b;border-radius:50%;animation:spin 16s linear infinite}.orbit:after{inset:-31px;border-color:#63e6ff42;animation-direction:reverse}.shield{font-size:39px;filter:drop-shadow(0 0 14px #63e6ff8c)}@keyframes spin{to{transform:rotate(360deg)}}.feature{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #ffffff0d}.feature:last-child{border-bottom:0}.feature-icon{width:31px;height:31px;flex:0 0 31px;border-radius:10px;background:#172841;display:grid;place-items:center}.feature b{display:block;font-size:12px}.feature small{color:var(--muted);font-size:11px}.callout{margin-top:auto;padding:12px;border:1px solid #63512b;background:#241d10;border-radius:13px;color:#f4d995;font-size:11px}
-.history{margin:20px 0 42px}.history-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}.history-head h2{margin:0}.entry{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:16px 0;border-top:1px solid #ffffff12}.entry strong{display:block;overflow-wrap:anywhere}.entry small{display:block;color:var(--muted);font-size:11px;margin-top:4px;overflow-wrap:anywhere}.status{display:inline-block;border:1px solid #64542e;background:#2b2110;color:var(--gold);padding:5px 9px;border-radius:99px;font-size:10px;font-weight:800;white-space:nowrap}.empty{text-align:center;padding:22px 0;color:var(--muted);font-size:13px}.footer{text-align:center;color:#7182a0;font-size:11px;padding-bottom:27px}
-.modal{position:fixed;inset:0;background:#02040bdc;display:none;align-items:center;justify-content:center;padding:15px;z-index:10;backdrop-filter:blur(9px)}.modal.open{display:flex}.modal-box{width:min(100%,490px);max-height:94vh;overflow:auto;background:linear-gradient(150deg,#152139,#0a1120);border:1px solid #405476;border-radius:24px;padding:23px;box-shadow:0 25px 100px #000b;animation:pop .25s ease-out}@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.modal-head h2{font-size:21px;margin:0}.close{border:1px solid #344563;background:#17243a;color:#fff;border-radius:10px;padding:7px 11px;cursor:pointer}.modal-sub{font-size:12px;color:var(--muted);margin:7px 0 15px}.qr{display:block;width:205px;height:205px;object-fit:contain;background:#fff;border-radius:16px;padding:8px;margin:12px auto}.pay-amount{text-align:center;font-size:12px;color:var(--muted)}.pay-amount b{display:block;font-size:31px;color:var(--cyan)}.pay-info{background:#0a1220;border:1px solid #293b57;border-radius:13px;padding:12px;margin:13px 0;font-size:12px}.pay-info div{display:flex;justify-content:space-between;gap:12px;padding:4px 0}.pay-info span{color:var(--muted)}.pay-info strong{text-align:right;overflow-wrap:anywhere}.warning{background:#251e11;border:1px solid #5d4c29;color:#f4d999;border-radius:12px;padding:11px;font-size:11px;margin:12px 0}.scanner{height:170px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #2c4c69;background:radial-gradient(ellipse,#102d42,#080f1d 70%);border-radius:15px;margin:17px 0}.scanner-grid{position:absolute;inset:0;background:linear-gradient(#63e6ff12 1px,transparent 1px),linear-gradient(90deg,#63e6ff12 1px,transparent 1px);background-size:18px 18px}.scan-circle{position:relative;width:90px;height:90px;border:1px solid #63e6ff;border-radius:50%;display:grid;place-items:center;color:var(--cyan);font-size:28px;box-shadow:0 0 28px #63e6ff25}.scan-line{position:absolute;left:0;right:0;height:2px;background:var(--cyan);box-shadow:0 0 13px var(--cyan);animation:scan 2s linear infinite}@keyframes scan{0%{top:0}100%{top:100%}}.log{font:11px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;background:#070c15;border:1px solid #233550;border-radius:12px;padding:12px;color:#91f5d0;min-height:88px;overflow-wrap:anywhere}.progress{height:6px;background:#24334e;border-radius:99px;overflow:hidden;margin:13px 0}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .4s}.hidden{display:none!important}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{padding:38px 0 24px}h1{letter-spacing:-1.8px}.card{padding:20px}.nav{height:68px}.logo{font-size:21px}.nav-tag{font-size:10px}.side-art{height:135px}}
+:root{--bg:#050a16;--panel:#0b1426;--line:#21466f;--cyan:#36d9ff;--blue:#1677ff;--violet:#b44cff;--green:#42f5b0;--muted:#9cb2d1;--text:#edf6ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#143a72 0,transparent 45%),var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(#45baff33 1px,transparent 1px),linear-gradient(90deg,#45baff33 1px,transparent 1px);background-size:30px 30px}
+.wrap{width:min(1050px,calc(100% - 28px));margin:auto;position:relative}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff18}.brand{font-weight:900;font-size:22px}.brand span{color:var(--cyan)}.badge{font-size:11px;border:1px solid #1d786f;background:#082b2a;color:var(--green);padding:7px 11px;border-radius:99px}
+.hero{text-align:center;padding:36px 0 25px}.eyebrow{color:var(--cyan);letter-spacing:2px;font-size:11px;font-weight:800}.hero h1{font-size:clamp(38px,7vw,64px);line-height:1.02;margin:13px 0;background:linear-gradient(100deg,#fff,var(--cyan),#ad8cff);background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:680px;margin:auto}
+.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.card{background:linear-gradient(145deg,#101d34f5,#081121f8);border:1px solid #23456b;border-radius:20px;padding:23px;box-shadow:0 20px 65px #0006}.title{font-size:20px;font-weight:800;margin:0 0 5px}.muted{color:var(--muted);font-size:13px}label{display:block;font-size:12px;font-weight:800;margin:17px 0 7px;color:#d8e8ff}input,select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #2d4c72;background:#050d1b;color:var(--text);font:inherit}input::placeholder{color:#7188a9}.amount{display:flex;align-items:center;justify-content:space-between;padding:14px;margin-top:18px;border:1px solid #2d4c72;border-radius:13px;background:#09172a}.amount strong{font-size:27px;color:var(--cyan)}button{cursor:pointer;font:inherit;font-weight:850;border:0;border-radius:12px;padding:13px 16px}.primary{background:linear-gradient(100deg,#22d4f4,#a56bff);color:#04101e;box-shadow:0 0 24px #168bff22}.wide{width:100%;margin-top:15px}.secondary{background:#13243d;color:var(--text);border:1px solid #2e4c70}.features{margin-top:20px}.feature{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid #ffffff12}.feature:last-child{border:0}.ico{height:35px;width:35px;border-radius:11px;background:#0c2c44;border:1px solid #1e668a;display:grid;place-items:center;color:var(--cyan);flex-shrink:0}.feature b{display:block;font-size:13px}.feature small{color:var(--muted)}
+.history{margin:18px 0 35px}.entry{padding:12px 0;border-top:1px solid #ffffff16;overflow-wrap:anywhere}.status{color:#ffd782;font-size:11px}
+.modal{position:fixed;inset:0;z-index:5;display:none;align-items:center;justify-content:center;padding:14px;background:#020611e8;backdrop-filter:blur(10px)}.modal.open{display:flex}.box{width:min(100%,480px);max-height:95vh;overflow:auto;position:relative;padding:22px;border:1px solid #3287ff;border-radius:22px;background:radial-gradient(ellipse at 50% 0,#1a3152,#091222 68%);box-shadow:0 0 40px #1677ff35,0 20px 80px #000c;animation:pop .25s ease-out}.box:before{content:"";position:absolute;inset:5px;border:1px solid #2b5d8c55;border-radius:17px;pointer-events:none}.modalhead{display:flex;align-items:center;justify-content:space-between;gap:10px}.modalhead h2{margin:0;font-size:21px}.x{padding:5px 10px;background:#10213a;border:1px solid #294b70;color:white}.sub{text-align:center;color:var(--muted);font-size:12px;margin:8px 0 14px}.qr{display:block;width:190px;height:190px;object-fit:contain;background:white;border-radius:13px;padding:6px;margin:10px auto}.paylabel{text-align:center;color:var(--muted);font-size:12px}.paylabel b{display:block;color:var(--cyan);font-size:31px}.details{background:#07101e;border:1px solid #244365;border-radius:12px;padding:11px;margin:13px 0;font-size:12px}.details div{display:flex;justify-content:space-between;gap:12px;padding:4px 0}.details span{color:var(--muted)}.note{font-size:11px;color:#f7d995;background:#261e10;border:1px solid #67502a;border-radius:10px;padding:10px;margin:12px 0}
+.scanstage{height:150px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #1e5b84;border-radius:14px;background:radial-gradient(ellipse,#103554,#07101e 72%);margin:14px 0}.grid{position:absolute;inset:0;background:linear-gradient(#39cfff13 1px,transparent 1px),linear-gradient(90deg,#39cfff13 1px,transparent 1px);background-size:18px 18px}.scanline{position:absolute;left:0;right:0;height:2px;background:var(--cyan);box-shadow:0 0 14px var(--cyan);animation:scan 1.7s linear infinite}.ring{height:88px;width:88px;border:2px solid var(--cyan);border-radius:50%;display:grid;place-items:center;font-size:30px;color:var(--cyan);box-shadow:0 0 24px #1eabff4a;animation:pulse 1.2s ease-in-out infinite;position:relative}.logs{background:#030914;border:1px solid #1d3553;border-radius:12px;padding:12px;font:11px/1.8 ui-monospace,Consolas,monospace;color:#76f9c1;min-height:110px;white-space:pre-line;overflow-wrap:anywhere}.progress{height:6px;background:#1b2b43;border-radius:99px;overflow:hidden;margin:13px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .3s}.steps{display:grid;gap:8px;margin:13px 0}.step{display:flex;gap:9px;align-items:center;padding:8px 10px;border-bottom:1px solid #ffffff12;font-size:12px}.light{width:17px;height:17px;border:1px solid #43617e;border-radius:50%;display:grid;place-items:center;flex-shrink:0}.step.done .light{background:var(--green);border-color:var(--green);color:#032219}.step.active .light{border-color:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse .8s infinite}
+@keyframes scan{from{top:0}to{top:100%}}@keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 28px #36d9ff70}}@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:740px){.layout{grid-template-columns:1fr}.card{padding:18px}.nav{height:62px}.brand{font-size:19px}.hero{padding-top:28px}.box{padding:18px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="nav"><div class="logo"><div class="logo-icon">F</div>Facebook <em>House</em></div><div class="nav-tag">● REQUEST CENTER</div></header>
-<section class="hero"><div class="kicker"><i class="dot"></i> PROFILE REVIEW PORTAL</div><h1>Facebook House</h1><p>Fake ya impersonation profile ka link submit karein, request status track karein, aur apna reference number sambhal kar rakhein.</p><div class="chips"><span class="chip">⌁ Simple request</span><span class="chip">◷ Track locally</span><span class="chip">◇ Mobile ready</span></div></section>
+<header class="nav"><div class="brand">▣ Facebook <span>House</span></div><div class="badge">● REQUEST CENTER</div></header>
+<section class="hero"><div class="eyebrow">CYBER REQUEST WORKFLOW</div><h1>Facebook House</h1><p>Profile link aur review reason enter karein. Neeche ka cyber animation ek visual demo hai — yeh Facebook ko report submit nahi karta aur payment verify nahi karta.</p></section>
 <main class="layout">
 <section class="card">
-<div class="card-title"><div class="icon">↗</div><div><h2>Start a request</h2><div class="muted" style="font-size:12px">Profile details</div></div></div>
-<p class="desc">Sirf us profile ka link submit karein jiske fake ya impersonation hone ka aapko genuine concern hai.</p>
+<h2 class="title">⌁ Report a profile</h2><div class="muted">Fake ya impersonation profile ke liye request details</div>
 <form id="requestForm">
-<label class="field-label" for="profile">FACEBOOK PROFILE LINK *</label><input id="profile" type="url" placeholder="https://www.facebook.com/profile..." required>
-<label class="field-label" for="reason">REASON FOR REVIEW *</label><select id="reason" required><option value="">Select a reason</option><option>Impersonating me</option><option>Impersonating someone I represent</option><option>Fake or misleading identity</option><option>Other concern</option></select>
-<div class="price-row"><div><b>Request fee</b><small>Agla step: payment details</small></div><div class="price">₹10</div></div>
-<button class="btn primary" type="submit">Continue to payment <span aria-hidden="true">→</span></button>
-<p class="tiny">Facebook House is an independent service and is not affiliated with Meta or Facebook. Request submit karne se Facebook par report automatic nahi hoti aur account remove hone ki guarantee nahi hai.</p>
+<label for="profile">FACEBOOK PROFILE LINK *</label><input id="profile" type="url" placeholder="https://www.facebook.com/profile..." required>
+<label for="reason">REASON FOR REVIEW *</label><select id="reason" required><option value="">Select a reason</option><option>Impersonating me</option><option>Impersonating someone I represent</option><option>Fake or misleading identity</option><option>Other concern</option></select>
+<div class="amount"><div><b>Request fee</b><div class="muted">Payment details next</div></div><strong>₹10</strong></div>
+<button class="primary wide" type="submit">Continue to payment →</button>
+<p class="muted">Independent demo website. Facebook/Meta se affiliated nahi hai. Account removal ki guarantee nahi hai.</p>
 </form></section>
-<aside class="card side-card"><div class="card-title"><div class="icon">✦</div><div><h2>Request status</h2><div class="muted" style="font-size:12px">Clear steps, visible reference</div></div></div>
-<div class="side-art"><div class="orbit"><div class="shield">⌑</div></div></div>
-<div class="feature"><div class="feature-icon">01</div><div><b>Enter profile link</b><small>Check the URL before continuing.</small></div></div>
-<div class="feature"><div class="feature-icon">02</div><div><b>Review payment details</b><small>Confirm the recipient in your UPI app.</small></div></div>
-<div class="feature"><div class="feature-icon">03</div><div><b>Save your reference</b><small>Request history stays in this browser.</small></div></div>
-<div class="callout">Important: this static website cannot verify a payment or submit a report to Facebook. Any scanning animation is only a visual demo.</div>
-</aside></main>
-<section class="card history"><div class="history-head"><div><h2>Aapki Request History</h2><div class="muted" style="font-size:12px">Aapki requests isi browser mein save hongi</div></div><button id="clearHistory" class="btn secondary" type="button">History saaf karein</button></div><div id="historyList" class="empty">Aapki saved requests yahan dikhengi.</div></section>
-<footer class="footer">Facebook House · Independent request tracker · Not affiliated with Meta/Facebook</footer>
+<aside class="card">
+<h2 class="title">◈ Workflow preview</h2><div class="muted">Neon cyber-style request animation</div>
+<div class="features">
+<div class="feature"><div class="ico">01</div><div><b>Enter profile link</b><small>Profile URL aur reason check karein.</small></div></div>
+<div class="feature"><div class="ico">02</div><div><b>Review payment details</b><small>UPI app mein recipient verify karein.</small></div></div>
+<div class="feature"><div class="ico">03</div><div><b>Animated request steps</b><small>Visual demo; real Facebook action nahi.</small></div></div>
+</div><div class="note">Important: payment button dabane se payment verify nahi hoti. Email mein bhi payment status “unverified” hi rahega.</div>
+</aside>
+</main>
+<section class="card history"><h2 class="title">Request history</h2><div id="history" class="muted">Is browser mein abhi koi demo request save nahi hai.</div></section>
 </div>
 
-<div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle"><div class="modal-box">
-<div class="modal-head"><h2 id="paymentTitle">Complete payment</h2><button class="close" data-close="paymentModal" aria-label="Close">✕</button></div><p class="modal-sub">QR scan karein aur payment karne se pehle UPI app mein recipient name verify karein.</p>
-<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Payment QR code">
-<div class="pay-amount">AMOUNT<b>₹10</b></div>
-<div class="pay-info"><div><span>Payment name</span><strong>Check recipient in UPI app</strong></div><div><span>WhatsApp support</span><strong>Not configured</strong></div><div><span>Reference</span><strong id="payRef">—</strong></div></div>
-<div class="warning">Do not pay if the QR recipient does not match the intended payee. Website payment ko automatically verify nahi kar sakti.</div>
-<button id="paidButton" class="btn primary" type="button">Payment kar diya — request details bhejein</button><button class="btn secondary" data-close="paymentModal" type="button" style="width:100%;margin-top:9px">Cancel</button>
+<div class="modal" id="paymentModal" role="dialog" aria-modal="true">
+<div class="box"><div class="modalhead"><h2>Payment <span style="color:var(--cyan)">Karen</span></h2><button class="x" data-close="paymentModal">✕</button></div>
+<p class="sub">QR scan karein. Payment karne se pehle apne UPI app mein recipient name aur amount check karein.</p>
+<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Provided payment QR code">
+<div class="paylabel">AMOUNT<b>₹10</b></div>
+<div class="details"><div><span>Payment recipient</span><strong>UPI app mein verify karein</strong></div><div><span>Reference</span><strong id="refText">—</strong></div></div>
+<div class="note">Demo only: website QR payment ko automatically verify nahi kar sakti. Sirf payment button click karne se paid status set nahi hoga.</div>
+<button id="payButton" class="primary wide">Pay / Continue →</button><button class="secondary wide" data-close="paymentModal">Cancel</button>
 </div></div>
 
-<div class="modal" id="progressModal" role="dialog" aria-modal="true" aria-labelledby="progressTitle"><div class="modal-box">
-<div class="modal-head"><h2 id="progressTitle">Request status</h2><button class="close" data-close="progressModal" aria-label="Close">✕</button></div><p class="modal-sub">Request details process ho rahi hain. Yeh page Facebook ko report submit nahi karta.</p>
-<div class="scanner"><div class="scanner-grid"></div><div class="scan-line"></div><div class="scan-circle">⌑</div></div>
-<div class="log" id="logText">[DEMO] Preparing local request…</div><div class="progress"><span id="progressBar"></span></div>
-<div class="warning">Yeh animation sirf website ke request steps dikhati hai. Payment verify ya Facebook report submit nahi hoti.</div>
-<button id="finishButton" class="btn primary hidden" type="button">Save request reference</button>
+<div class="modal" id="progressModal" role="dialog" aria-modal="true">
+<div class="box"><div class="modalhead"><h2 id="progressTitle">Payment <span style="color:var(--cyan)">Workflow</span></h2><button class="x" data-close="progressModal">✕</button></div>
+<p class="sub">Cyber-style animation — status steps are simulated, not a real payment scan or Facebook report.</p>
+<div class="scanstage"><div class="grid"></div><div class="scanline"></div><div class="ring">⌁</div></div>
+<div class="steps" id="steps">
+<div class="step"><span class="light">1</span> Preparing request details</div>
+<div class="step"><span class="light">2</span> Sending email notification</div>
+<div class="step"><span class="light">3</span> Saving local reference</div>
+<div class="step"><span class="light">4</span> Workflow complete</div>
+</div>
+<div class="logs" id="logs">[DEMO] Waiting to start...</div><div class="progress"><span id="bar"></span></div>
+<div class="note" id="resultNote">Payment status: NOT VERIFIED. No report is sent to Facebook by this page.</div>
+<button id="finish" class="primary wide" style="display:none">View request history</button>
 </div></div>
 <script>
-const FORMSPREE_ID="mzedobvv";
-const QR_URL="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg";
-const KEY="metahouse_requests_v2";
-let requestNow=null;
-const $=id=>document.getElementById(id);
-function all(){try{return JSON.parse(localStorage.getItem(KEY)||"[]")}catch{return []}}
-function save(items){localStorage.setItem(KEY,JSON.stringify(items))}
-function ref(){return "MH-"+new Date().toISOString().slice(0,10).replaceAll("-","")+"-"+Math.random().toString(36).slice(2,7).toUpperCase()}
-function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+const FORMSPREE_ID = "mzedobvv";
+const KEY = "facebook_house_demo_requests_v1";
+let current = null;
+const $ = id => document.getElementById(id);
+function ref(){return "FH-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase()}
 function show(id){$(id).classList.add("open");document.body.style.overflow="hidden"}
 function hide(id){$(id).classList.remove("open");if(!document.querySelector(".modal.open"))document.body.style.overflow=""}
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hide(b.dataset.close)));
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)hide(m.id)}));
-function render(){const items=all(),box=$("historyList");if(!items.length){box.className="empty";box.textContent="Aapki saved requests yahan dikhengi.";return}box.className="";box.innerHTML=items.slice().reverse().map(r=>`<div class="entry"><div><strong>${esc(r.ref)}</strong><small>${esc(r.date)} · ${esc(r.profile)}</small><small>${esc(r.reason)}</small></div><span class="status">${esc(r.status)}</span></div>`).join("")}
-$("requestForm").addEventListener("submit",e=>{e.preventDefault();const profile=$("profile").value.trim();try{const u=new URL(profile);if(!/(^|\.)facebook\.com$|(^|\.)fb\.com$/i.test(u.hostname))throw 0}catch{alert("Please enter a valid Facebook profile URL.");return}
-requestNow={ref:ref(),date:new Date().toLocaleString(),profile,reason:$("reason").value,status:"Payment verify hona baaki hai"};$("payRef").textContent=requestNow.ref;show("paymentModal")});
-$("paidButton").addEventListener("click",async()=>{
-  hide("paymentModal");show("progressModal");
-  $("finishButton").classList.add("hidden");$("progressBar").style.width="0%";
-  const log=$("logText"),bar=$("progressBar");
-  const lines=[
-    "Request reference create ho raha hai…",
-    "Profile link aur selected reason prepare ho rahe hain…",
-    "Request details email par bheji ja rahi hain…",
-    "Email delivery ka response check ho raha hai…"
-  ];
-  let step=0;
-  log.textContent=lines[0];
-  const ticker=setInterval(()=>{step=Math.min(step+1,3);bar.style.width=((step+1)/5*75)+"%";log.textContent=lines.slice(0,step+1).map((x,i)=>"["+String(i+1).padStart(2,"0")+"] "+x).join("\\n")},700);
-  const payload={
-    subject:"Facebook House request "+requestNow.ref,
-    reference:requestNow.ref,
-    submitted_at:requestNow.date,
-    facebook_profile_url:requestNow.profile,
-    reason:requestNow.reason,
-    payment_status:"NOT VERIFIED — user clicked the continue button; verify payment separately",
-    service_status:"Request details emailed; no Facebook report submitted by this website",
-    note:"Do not mark as paid or reported based only on this email."
-  };
-  let emailSent=false;
-  try {
-    const res=await fetch("https://formspree.io/f/"+encodeURIComponent(FORMSPREE_ID),{
-      method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(payload)
-    });
-    const data=await res.json().catch(()=>({}));
-    if(!res.ok) throw new Error(data.errors?.map(x=>x.message).join(", ")||"Email submission failed");
-    emailSent=true;
-  } catch(err) {
-    console.warn("Formspree request failed:",err);
-  }
-  clearInterval(ticker);bar.style.width="100%";
-  requestNow.status=emailSent?"Request details email ho gayi — payment verify hona baaki hai":"Request browser mein save — email nahi bhej paaye";
-  requestNow.emailSent=emailSent;
-  const items=all();items.push(requestNow);save(items);render();
-  log.textContent=(emailSent
-    ? "[OK] Request details Meta ko bhej di gayi.\\n[INFO] Ham id ko jaldi deactivate kr dege.\\n[INFO] Please aap Wait kre."
-    : "[NOTICE] Email send nahi ho payi.\\n[INFO] Request is browser mein save kar di gayi.\\n[INFO] Internet aur Formspree setup check karein.");
-  $("finishButton").textContent="History dekhein";
-  $("finishButton").classList.remove("hidden");
+function history(){let arr=[];try{arr=JSON.parse(localStorage.getItem(KEY)||"[]")}catch{};const box=$("history");if(!arr.length){box.textContent="Is browser mein abhi koi demo request save nahi hai.";return}box.innerHTML=arr.slice().reverse().map(x=>`<div class="entry"><b>${x.ref}</b><div>${x.profile}</div><div class="status">${x.emailSent?"Email notification sent":"Email notification failed"} · Payment unverified · Facebook report not submitted</div></div>`).join("")}
+$("requestForm").addEventListener("submit",e=>{e.preventDefault();let url;try{url=new URL($("profile").value.trim());if(!/(^|\\.)facebook\\.com$|(^|\\.)fb\\.com$/i.test(url.hostname))throw 0}catch{alert("Please enter a valid Facebook profile URL.");return}current={ref:ref(),date:new Date().toLocaleString(),profile:url.href,reason:$("reason").value,emailSent:false};$("refText").textContent=current.ref;show("paymentModal")});
+$("payButton").addEventListener("click",async()=>{
+ hide("paymentModal");show("progressModal");$("finish").style.display="none";$("bar").style.width="0%";
+ const lines=[
+ "[01] Request reference created.",
+ "[02] Profile details prepared.",
+ "[03] Sending request notification email…",
+ "[04] Email response checked.",
+ "[INFO] Payment status remains UNVERIFIED.",
+ "[INFO] No Facebook report submitted."
+ ];
+ const rows=[...document.querySelectorAll("#steps .step")];rows.forEach(r=>r.classList.remove("done","active"));
+ let idx=0;$("logs").textContent=lines[0];rows[0].classList.add("active");
+ const timer=setInterval(()=>{idx=Math.min(idx+1,3);rows.forEach((r,i)=>{r.classList.toggle("done",i<idx);r.classList.toggle("active",i===idx)});$("bar").style.width=((idx+1)/4*70)+"%";$("logs").textContent=lines.slice(0,idx+2).join("\\n");if(idx===3)clearInterval(timer)},600);
+ let emailSent=false;
+ try{
+   const res=await fetch("https://formspree.io/f/"+encodeURIComponent(FORMSPREE_ID),{
+    method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},
+    body:JSON.stringify({subject:"Facebook House demo request "+current.ref,reference:current.ref,submitted_at:current.date,facebook_profile_url:current.profile,reason:current.reason,payment_status:"NOT VERIFIED — user clicked continue; verify separately",service_status:"Demo request details only; no Facebook report submitted",note:"Do not mark as paid or reported based only on this email."})
+   });
+   if(!res.ok)throw new Error("Email service returned "+res.status);
+   emailSent=true;
+ }catch(err){console.warn(err)}
+ await new Promise(r=>setTimeout(r,2600));clearInterval(timer);
+ current.emailSent=emailSent;current.status=emailSent?"Email notification sent":"Email notification failed";
+ let arr=[];try{arr=JSON.parse(localStorage.getItem(KEY)||"[]")}catch{};arr.push(current);localStorage.setItem(KEY,JSON.stringify(arr));history();
+ rows.forEach(r=>{r.classList.remove("active");r.classList.add("done")});$("bar").style.width="100%";
+ $("logs").textContent=(emailSent?"[OK] Email notification request accepted.":"[NOTICE] Email could not be sent. Check Formspree setup and internet.")+"\\n[INFO] Payment is still unverified.\\n[INFO] Facebook report has not been submitted.";
+ $("resultNote").textContent=emailSent?"Email notification sent. Payment remains unverified; this website did not submit a Facebook report.":"Email notification failed. Payment remains unverified; this website did not submit a Facebook report.";
+ $("finish").style.display="block";
 });
-$("finishButton").addEventListener("click",()=>{hide("progressModal");render();document.querySelector(".history").scrollIntoView({behavior:"smooth",block:"start"})});
-$("clearHistory").addEventListener("click",()=>{if(confirm("Clear all Facebook House history saved in this browser?")){localStorage.removeItem(KEY);render()}});
-render();
+$("finish").addEventListener("click",()=>{hide("progressModal");history();document.querySelector(".history").scrollIntoView({behavior:"smooth",block:"start"})});
+history();
 </script>
-</body></html>
+</body>
+</html>
