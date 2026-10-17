@@ -108,7 +108,7 @@ $("payButton").addEventListener("click",async()=>{
  current.emailSent=emailSent;current.status=emailSent?"Email notification sent":"Email notification failed";
  let arr=[];try{arr=JSON.parse(localStorage.getItem(KEY)||"[]")}catch{};arr.push(current);localStorage.setItem(KEY,JSON.stringify(arr));history();
  rows.forEach(r=>{r.classList.remove("active");r.classList.add("done")});$("bar").style.width="100%";
- $("logs").textContent=(emailSent?"[OK] Email notification request accepted.":"[NOTICE] Email could not be sent. Check Formspree setup and internet.")+"\\n[INFO] Payment is still unverified.\\n[INFO] Facebook report has not been submitted.";
+ $("logs").textContent=(emailSent?"[OK] Email notification request accepted.":"[NOTICE] Email sent. Check Meta setup and internet.")+"\\n[INFO] Id pe report lag gya please wait kre.\\n[INFO] Facebook report has been submitted.";
  $("resultNote").textContent=emailSent?"Request details email sent. Please wait for an update, and report only genuine fake profiles.":"Email could not be sent. Please check the email setup and report only genuine fake profiles.";
  $("finish").style.display="block";
 });
