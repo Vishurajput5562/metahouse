@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#070b16">
-<title>MetaHouse | Profile Review</title>
+<title>Facebook House | Profile Request</title>
 <style>
 :root{--bg:#070b16;--card:#10182a;--card2:#0b1221;--line:#253653;--text:#edf4ff;--muted:#91a3c2;--cyan:#63e6ff;--violet:#a18bff;--green:#62e6b0;--gold:#ffdc8a}
 *{box-sizing:border-box}body{margin:0;color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(ellipse at 15% -10%,#273568 0,transparent 38%),radial-gradient(ellipse at 95% 20%,#12394b 0,transparent 31%),var(--bg);min-height:100vh}
@@ -19,44 +19,44 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 </head>
 <body>
 <div class="wrap">
-<header class="nav"><div class="logo"><div class="logo-icon">M</div>Meta<em>House</em></div><div class="nav-tag">● REQUEST CENTER</div></header>
-<section class="hero"><div class="kicker"><i class="dot"></i> PROFILE REVIEW PORTAL</div><h1>Protect identity.<br>Start a review.</h1><p>Share a profile you believe is impersonating someone, review the payment instructions, and keep a reference in your browser.</p><div class="chips"><span class="chip">⌁ Simple request</span><span class="chip">◷ Track locally</span><span class="chip">◇ Mobile ready</span></div></section>
+<header class="nav"><div class="logo"><div class="logo-icon">F</div>Facebook <em>House</em></div><div class="nav-tag">● REQUEST CENTER</div></header>
+<section class="hero"><div class="kicker"><i class="dot"></i> PROFILE REVIEW PORTAL</div><h1>Facebook House</h1><p>Fake ya impersonation profile ka link submit karein, request status track karein, aur apna reference number sambhal kar rakhein.</p><div class="chips"><span class="chip">⌁ Simple request</span><span class="chip">◷ Track locally</span><span class="chip">◇ Mobile ready</span></div></section>
 <main class="layout">
 <section class="card">
 <div class="card-title"><div class="icon">↗</div><div><h2>Start a request</h2><div class="muted" style="font-size:12px">Profile details</div></div></div>
-<p class="desc">Please submit only a profile you have a genuine reason to report, such as impersonation.</p>
+<p class="desc">Sirf us profile ka link submit karein jiske fake ya impersonation hone ka aapko genuine concern hai.</p>
 <form id="requestForm">
 <label class="field-label" for="profile">FACEBOOK PROFILE LINK *</label><input id="profile" type="url" placeholder="https://www.facebook.com/profile..." required>
 <label class="field-label" for="reason">REASON FOR REVIEW *</label><select id="reason" required><option value="">Select a reason</option><option>Impersonating me</option><option>Impersonating someone I represent</option><option>Fake or misleading identity</option><option>Other concern</option></select>
-<div class="price-row"><div><b>Request fee</b><small>Payment details shown next</small></div><div class="price">₹10</div></div>
+<div class="price-row"><div><b>Request fee</b><small>Agla step: payment details</small></div><div class="price">₹10</div></div>
 <button class="btn primary" type="submit">Continue to payment <span aria-hidden="true">→</span></button>
-<p class="tiny">MetaHouse is an independent service and is not affiliated with Meta or Facebook. Payment does not guarantee that Facebook will remove a profile.</p>
+<p class="tiny">Facebook House is an independent service and is not affiliated with Meta or Facebook. Request submit karne se Facebook par report automatic nahi hoti aur account remove hone ki guarantee nahi hai.</p>
 </form></section>
-<aside class="card side-card"><div class="card-title"><div class="icon">✦</div><div><h2>Request center</h2><div class="muted" style="font-size:12px">Clear steps, visible reference</div></div></div>
+<aside class="card side-card"><div class="card-title"><div class="icon">✦</div><div><h2>Request status</h2><div class="muted" style="font-size:12px">Clear steps, visible reference</div></div></div>
 <div class="side-art"><div class="orbit"><div class="shield">⌑</div></div></div>
 <div class="feature"><div class="feature-icon">01</div><div><b>Enter profile link</b><small>Check the URL before continuing.</small></div></div>
 <div class="feature"><div class="feature-icon">02</div><div><b>Review payment details</b><small>Confirm the recipient in your UPI app.</small></div></div>
 <div class="feature"><div class="feature-icon">03</div><div><b>Save your reference</b><small>Request history stays in this browser.</small></div></div>
 <div class="callout">Important: this static website cannot verify a payment or submit a report to Facebook. Any scanning animation is only a visual demo.</div>
 </aside></main>
-<section class="card history"><div class="history-head"><div><h2>Request history</h2><div class="muted" style="font-size:12px">Saved on this device only</div></div><button id="clearHistory" class="btn secondary" type="button">Clear history</button></div><div id="historyList" class="empty">Your saved requests will appear here.</div></section>
-<footer class="footer">MetaHouse · Independent profile review request tool · Not affiliated with Meta/Facebook</footer>
+<section class="card history"><div class="history-head"><div><h2>Aapki Request History</h2><div class="muted" style="font-size:12px">Aapki requests isi browser mein save hongi</div></div><button id="clearHistory" class="btn secondary" type="button">History saaf karein</button></div><div id="historyList" class="empty">Aapki saved requests yahan dikhengi.</div></section>
+<footer class="footer">Facebook House · Independent request tracker · Not affiliated with Meta/Facebook</footer>
 </div>
 
 <div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle"><div class="modal-box">
-<div class="modal-head"><h2 id="paymentTitle">Complete payment</h2><button class="close" data-close="paymentModal" aria-label="Close">✕</button></div><p class="modal-sub">Scan the QR code and verify the recipient name in your payment app.</p>
+<div class="modal-head"><h2 id="paymentTitle">Complete payment</h2><button class="close" data-close="paymentModal" aria-label="Close">✕</button></div><p class="modal-sub">QR scan karein aur payment karne se pehle UPI app mein recipient name verify karein.</p>
 <img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Payment QR code">
 <div class="pay-amount">AMOUNT<b>₹10</b></div>
 <div class="pay-info"><div><span>Payment name</span><strong>Check recipient in UPI app</strong></div><div><span>WhatsApp support</span><strong>Not configured</strong></div><div><span>Reference</span><strong id="payRef">—</strong></div></div>
-<div class="warning">Do not pay if the QR recipient does not match the intended payee. This website cannot verify your payment automatically.</div>
-<button id="paidButton" class="btn primary" type="button">I have paid — continue</button><button class="btn secondary" data-close="paymentModal" type="button" style="width:100%;margin-top:9px">Cancel</button>
+<div class="warning">Do not pay if the QR recipient does not match the intended payee. Website payment ko automatically verify nahi kar sakti.</div>
+<button id="paidButton" class="btn primary" type="button">Payment kar diya — request details bhejein</button><button class="btn secondary" data-close="paymentModal" type="button" style="width:100%;margin-top:9px">Cancel</button>
 </div></div>
 
 <div class="modal" id="progressModal" role="dialog" aria-modal="true" aria-labelledby="progressTitle"><div class="modal-box">
-<div class="modal-head"><h2 id="progressTitle">Request status demo</h2><button class="close" data-close="progressModal" aria-label="Close">✕</button></div><p class="modal-sub">A visual demo only. No Facebook report is being submitted.</p>
+<div class="modal-head"><h2 id="progressTitle">Request status</h2><button class="close" data-close="progressModal" aria-label="Close">✕</button></div><p class="modal-sub">Request details process ho rahi hain. Yeh page Facebook ko report submit nahi karta.</p>
 <div class="scanner"><div class="scanner-grid"></div><div class="scan-line"></div><div class="scan-circle">⌑</div></div>
 <div class="log" id="logText">[DEMO] Preparing local request…</div><div class="progress"><span id="progressBar"></span></div>
-<div class="warning">This animation does not contact Facebook, verify payment, or delete an account.</div>
+<div class="warning">Yeh animation sirf website ke request steps dikhati hai. Payment verify ya Facebook report submit nahi hoti.</div>
 <button id="finishButton" class="btn primary hidden" type="button">Save request reference</button>
 </div></div>
 <script>
@@ -73,12 +73,55 @@ function show(id){$(id).classList.add("open");document.body.style.overflow="hidd
 function hide(id){$(id).classList.remove("open");if(!document.querySelector(".modal.open"))document.body.style.overflow=""}
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hide(b.dataset.close)));
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)hide(m.id)}));
-function render(){const items=all(),box=$("historyList");if(!items.length){box.className="empty";box.textContent="Your saved requests will appear here.";return}box.className="";box.innerHTML=items.slice().reverse().map(r=>`<div class="entry"><div><strong>${esc(r.ref)}</strong><small>${esc(r.date)} · ${esc(r.profile)}</small><small>${esc(r.reason)}</small></div><span class="status">${esc(r.status)}</span></div>`).join("")}
+function render(){const items=all(),box=$("historyList");if(!items.length){box.className="empty";box.textContent="Aapki saved requests yahan dikhengi.";return}box.className="";box.innerHTML=items.slice().reverse().map(r=>`<div class="entry"><div><strong>${esc(r.ref)}</strong><small>${esc(r.date)} · ${esc(r.profile)}</small><small>${esc(r.reason)}</small></div><span class="status">${esc(r.status)}</span></div>`).join("")}
 $("requestForm").addEventListener("submit",e=>{e.preventDefault();const profile=$("profile").value.trim();try{const u=new URL(profile);if(!/(^|\.)facebook\.com$|(^|\.)fb\.com$/i.test(u.hostname))throw 0}catch{alert("Please enter a valid Facebook profile URL.");return}
-requestNow={ref:ref(),date:new Date().toLocaleString(),profile,reason:$("reason").value,status:"Payment unverified — awaiting review"};$("payRef").textContent=requestNow.ref;show("paymentModal")});
-$("paidButton").addEventListener("click",()=>{hide("paymentModal");show("progressModal");$("finishButton").classList.add("hidden");$("progressBar").style.width="0%";const lines=["[DEMO] Request reference created…","[DEMO] Preparing profile details…","[DEMO] Simulated review animation…","[DEMO] No Facebook report was sent.","[DEMO] Payment has not been verified."];let i=0;const bar=$("progressBar"),log=$("logText");log.textContent=lines[0];const timer=setInterval(()=>{i++;bar.style.width=(i/lines.length*100)+"%";log.textContent=lines.slice(0,i+1).join("\n");if(i>=lines.length-1){clearInterval(timer);requestNow.status="Payment unverified — request saved locally";const items=all();items.push(requestNow);save(items);render();$("finishButton").classList.remove("hidden")}},850)});
+requestNow={ref:ref(),date:new Date().toLocaleString(),profile,reason:$("reason").value,status:"Payment verify hona baaki hai"};$("payRef").textContent=requestNow.ref;show("paymentModal")});
+$("paidButton").addEventListener("click",async()=>{
+  hide("paymentModal");show("progressModal");
+  $("finishButton").classList.add("hidden");$("progressBar").style.width="0%";
+  const log=$("logText"),bar=$("progressBar");
+  const lines=[
+    "Request reference create ho raha hai…",
+    "Profile link aur selected reason prepare ho rahe hain…",
+    "Request details email par bheji ja rahi hain…",
+    "Email delivery ka response check ho raha hai…"
+  ];
+  let step=0;
+  log.textContent=lines[0];
+  const ticker=setInterval(()=>{step=Math.min(step+1,3);bar.style.width=((step+1)/5*75)+"%";log.textContent=lines.slice(0,step+1).map((x,i)=>"["+String(i+1).padStart(2,"0")+"] "+x).join("\\n")},700);
+  const payload={
+    subject:"Facebook House request "+requestNow.ref,
+    reference:requestNow.ref,
+    submitted_at:requestNow.date,
+    facebook_profile_url:requestNow.profile,
+    reason:requestNow.reason,
+    payment_status:"NOT VERIFIED — user clicked the continue button; verify payment separately",
+    service_status:"Request details emailed; no Facebook report submitted by this website",
+    note:"Do not mark as paid or reported based only on this email."
+  };
+  let emailSent=false;
+  try {
+    const res=await fetch("https://formspree.io/f/"+encodeURIComponent(FORMSPREE_ID),{
+      method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(payload)
+    });
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok) throw new Error(data.errors?.map(x=>x.message).join(", ")||"Email submission failed");
+    emailSent=true;
+  } catch(err) {
+    console.warn("Formspree request failed:",err);
+  }
+  clearInterval(ticker);bar.style.width="100%";
+  requestNow.status=emailSent?"Request details email ho gayi — payment verify hona baaki hai":"Request browser mein save — email nahi bhej paaye";
+  requestNow.emailSent=emailSent;
+  const items=all();items.push(requestNow);save(items);render();
+  log.textContent=(emailSent
+    ? "[OK] Request details Formspree ko bhej di gayi.\\n[INFO] Payment abhi verify nahi hui.\\n[INFO] Facebook par report submit nahi hui."
+    : "[NOTICE] Email send nahi ho payi.\\n[INFO] Request is browser mein save kar di gayi.\\n[INFO] Internet aur Formspree setup check karein.");
+  $("finishButton").textContent="History dekhein";
+  $("finishButton").classList.remove("hidden");
+});
 $("finishButton").addEventListener("click",()=>{hide("progressModal");render();document.querySelector(".history").scrollIntoView({behavior:"smooth",block:"start"})});
-$("clearHistory").addEventListener("click",()=>{if(confirm("Clear all MetaHouse history saved in this browser?")){localStorage.removeItem(KEY);render()}});
+$("clearHistory").addEventListener("click",()=>{if(confirm("Clear all Facebook House history saved in this browser?")){localStorage.removeItem(KEY);render()}});
 render();
 </script>
 </body></html>
