@@ -1,184 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b14">
-<title>MetaHouse — Profile Report Request</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070b16">
+<title>MetaHouse | Profile Review</title>
 <style>
-:root{--bg:#080b14;--panel:#101626;--panel2:#151e31;--line:#26344e;--text:#edf3ff;--muted:#9aa9c4;--cyan:#51e5ff;--violet:#9b7bff;--green:#51e0a3;--red:#ff7d8b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1b2450 0,transparent 36%),radial-gradient(ellipse at 100% 30%,#123345 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
-.wrap{width:min(100% - 28px,960px);margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{font-weight:900;font-size:23px;letter-spacing:.4px}.brand span{color:var(--cyan)}.badge{font-size:12px;color:var(--green);border:1px solid #245f52;border-radius:99px;padding:6px 10px;background:#102721}
-.hero{padding:38px 0 24px;text-align:center}.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:11px}.hero h1{font-size:clamp(34px,7vw,58px);line-height:1.05;margin:12px 0;background:linear-gradient(90deg,#fff,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:600px;margin:0 auto}
-.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:22px 0}.card{background:linear-gradient(150deg,#121a2bfa,#0d1321f5);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 55px #0003}.card h2{margin:0 0 7px;font-size:20px}.sub{color:var(--muted);font-size:13px;margin:0 0 18px}
-label{display:block;font-size:13px;color:#cbd6eb;font-weight:700;margin:14px 0 7px}input,select,textarea{width:100%;border:1px solid #30405c;background:#090f1c;color:var(--text);border-radius:12px;padding:13px 14px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #51e5ff1a}input::placeholder,textarea::placeholder{color:#71819e}.btn{border:0;border-radius:12px;padding:13px 17px;font-weight:850;cursor:pointer;font:inherit}.primary{background:linear-gradient(100deg,var(--cyan),#8c9bff);color:#08111e;width:100%;margin-top:17px}.secondary{background:#1b2740;color:var(--text);border:1px solid #354664}.tiny{font-size:12px;color:var(--muted)}.price{display:flex;justify-content:space-between;align-items:center;background:#0b1220;border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}.price strong{font-size:27px;color:var(--cyan)}.qr{display:block;width:min(100%,270px);aspect-ratio:1;object-fit:contain;background:#fff;border-radius:14px;padding:8px;margin:14px auto}.steps{padding-left:20px;color:var(--muted);font-size:13px}.steps li{margin:7px 0}.notice{border:1px solid #5b4d29;background:#211b10;color:#f7dca0;padding:12px;border-radius:12px;font-size:12px;margin-top:14px}.history{margin:18px 0 42px}.history-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.item{padding:14px 0;border-top:1px solid var(--line);display:flex;gap:12px;justify-content:space-between;align-items:flex-start}.item:first-child{border-top:0}.item strong{display:block;overflow-wrap:anywhere}.status{display:inline-block;border:1px solid #64542e;color:#f5d58a;background:#2a2110;border-radius:99px;padding:4px 9px;font-size:11px;white-space:nowrap}.empty{padding:22px 0;color:var(--muted);text-align:center}.footer{text-align:center;padding:0 0 28px;color:#7887a2;font-size:12px}
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:#03050bdc;z-index:5;overflow:auto}.modal.open{display:flex}.modal-box{width:min(100%,520px);max-height:92vh;overflow:auto;background:#101828;border:1px solid #344462;border-radius:22px;padding:22px;box-shadow:0 25px 90px #0009}.modal-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.x{border:1px solid var(--line);background:#1b2740;color:white;border-radius:10px;padding:6px 11px;cursor:pointer}.modal-box h2{margin:0}.progress{height:7px;background:#26344e;border-radius:9px;overflow:hidden;margin:14px 0}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .5s}.result{white-space:pre-wrap;overflow-wrap:anywhere;background:#090f1c;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:#c9d7ef}.hidden{display:none!important}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding-top:24px}.card{padding:18px}.top{padding:17px 0}.brand{font-size:21px}}
+:root{--bg:#070b16;--card:#10182a;--card2:#0b1221;--line:#253653;--text:#edf4ff;--muted:#91a3c2;--cyan:#63e6ff;--violet:#a18bff;--green:#62e6b0;--gold:#ffdc8a}
+*{box-sizing:border-box}body{margin:0;color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(ellipse at 15% -10%,#273568 0,transparent 38%),radial-gradient(ellipse at 95% 20%,#12394b 0,transparent 31%),var(--bg);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(#5e83ba22 1px,transparent 1px),linear-gradient(90deg,#5e83ba22 1px,transparent 1px);background-size:38px 38px}
+.wrap{width:min(1100px,calc(100% - 30px));margin:auto;position:relative}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.logo{display:flex;align-items:center;gap:11px;font-size:23px;font-weight:900;letter-spacing:-.7px}.logo-icon{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:#07101b;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:0 0 28px #63e6ff26;font-size:19px}.logo em{font-style:normal;color:var(--cyan)}.nav-tag{border:1px solid #285c5c;background:#0c282b;color:#8ff3d2;border-radius:99px;padding:7px 12px;font-size:12px;font-weight:750}
+.hero{text-align:center;padding:55px 0 30px}.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:850}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}h1{font-size:clamp(37px,7vw,68px);line-height:1.02;letter-spacing:-2.8px;margin:16px 0;background:linear-gradient(100deg,#fff 12%,var(--cyan) 54%,var(--violet));background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{max-width:630px;margin:0 auto;color:var(--muted);font-size:16px}.chips{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:21px}.chip{font-size:11px;border:1px solid #293955;background:#0c1425;border-radius:99px;padding:7px 11px;color:#b9c8e3}
+.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:18px;margin:12px 0 22px}.card{background:linear-gradient(150deg,#121c30f5,#0c1322f8);border:1px solid #2a3b59;border-radius:23px;padding:25px;box-shadow:0 25px 70px #0003;backdrop-filter:blur(12px)}.card-title{display:flex;align-items:center;gap:12px;margin-bottom:7px}.icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #2b4963;background:#102335;border-radius:14px;font-size:19px}.card h2{margin:0;font-size:20px;letter-spacing:-.4px}.muted{color:var(--muted)}.desc{font-size:13px;color:var(--muted);margin:0 0 22px}.field-label{display:block;margin:17px 0 8px;font-size:12px;font-weight:800;color:#cfdaee;letter-spacing:.3px}input,select{width:100%;background:#080f1d;color:var(--text);border:1px solid #304361;border-radius:13px;padding:14px 15px;font:inherit;outline:none;transition:.2s}input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 4px #63e6ff12}input::placeholder{color:#637696}.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:15px 16px;border:1px solid #2a3d59;border-radius:15px;background:#0a1220}.price-row b{font-size:13px}.price-row small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.price{font-size:29px;font-weight:900;color:var(--cyan);letter-spacing:-1px}.btn{border:0;border-radius:13px;padding:14px 17px;font:inherit;font-weight:850;cursor:pointer;transition:transform .2s,filter .2s}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.primary{width:100%;margin-top:17px;background:linear-gradient(100deg,var(--cyan),#a8a0ff);color:#07101d;box-shadow:0 10px 28px #63e6ff1c}.secondary{background:#18253b;color:var(--text);border:1px solid #354967}.tiny{font-size:11px;color:var(--muted);margin-top:12px}.side-card{height:100%;display:flex;flex-direction:column}.side-art{height:155px;border:1px solid #29415e;border-radius:17px;background:radial-gradient(circle at 50% 50%,#183c58,#101a30 62%);display:grid;place-items:center;margin:14px 0 18px;overflow:hidden;position:relative}.orbit{width:94px;height:94px;border:1px solid #63e6ff77;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 35px #63e6ff16;position:relative}.orbit:before,.orbit:after{content:"";position:absolute;inset:-17px;border:1px dashed #9b8aff6b;border-radius:50%;animation:spin 16s linear infinite}.orbit:after{inset:-31px;border-color:#63e6ff42;animation-direction:reverse}.shield{font-size:39px;filter:drop-shadow(0 0 14px #63e6ff8c)}@keyframes spin{to{transform:rotate(360deg)}}.feature{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #ffffff0d}.feature:last-child{border-bottom:0}.feature-icon{width:31px;height:31px;flex:0 0 31px;border-radius:10px;background:#172841;display:grid;place-items:center}.feature b{display:block;font-size:12px}.feature small{color:var(--muted);font-size:11px}.callout{margin-top:auto;padding:12px;border:1px solid #63512b;background:#241d10;border-radius:13px;color:#f4d995;font-size:11px}
+.history{margin:20px 0 42px}.history-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}.history-head h2{margin:0}.entry{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:16px 0;border-top:1px solid #ffffff12}.entry strong{display:block;overflow-wrap:anywhere}.entry small{display:block;color:var(--muted);font-size:11px;margin-top:4px;overflow-wrap:anywhere}.status{display:inline-block;border:1px solid #64542e;background:#2b2110;color:var(--gold);padding:5px 9px;border-radius:99px;font-size:10px;font-weight:800;white-space:nowrap}.empty{text-align:center;padding:22px 0;color:var(--muted);font-size:13px}.footer{text-align:center;color:#7182a0;font-size:11px;padding-bottom:27px}
+.modal{position:fixed;inset:0;background:#02040bdc;display:none;align-items:center;justify-content:center;padding:15px;z-index:10;backdrop-filter:blur(9px)}.modal.open{display:flex}.modal-box{width:min(100%,490px);max-height:94vh;overflow:auto;background:linear-gradient(150deg,#152139,#0a1120);border:1px solid #405476;border-radius:24px;padding:23px;box-shadow:0 25px 100px #000b;animation:pop .25s ease-out}@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.modal-head h2{font-size:21px;margin:0}.close{border:1px solid #344563;background:#17243a;color:#fff;border-radius:10px;padding:7px 11px;cursor:pointer}.modal-sub{font-size:12px;color:var(--muted);margin:7px 0 15px}.qr{display:block;width:205px;height:205px;object-fit:contain;background:#fff;border-radius:16px;padding:8px;margin:12px auto}.pay-amount{text-align:center;font-size:12px;color:var(--muted)}.pay-amount b{display:block;font-size:31px;color:var(--cyan)}.pay-info{background:#0a1220;border:1px solid #293b57;border-radius:13px;padding:12px;margin:13px 0;font-size:12px}.pay-info div{display:flex;justify-content:space-between;gap:12px;padding:4px 0}.pay-info span{color:var(--muted)}.pay-info strong{text-align:right;overflow-wrap:anywhere}.warning{background:#251e11;border:1px solid #5d4c29;color:#f4d999;border-radius:12px;padding:11px;font-size:11px;margin:12px 0}.scanner{height:170px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #2c4c69;background:radial-gradient(ellipse,#102d42,#080f1d 70%);border-radius:15px;margin:17px 0}.scanner-grid{position:absolute;inset:0;background:linear-gradient(#63e6ff12 1px,transparent 1px),linear-gradient(90deg,#63e6ff12 1px,transparent 1px);background-size:18px 18px}.scan-circle{position:relative;width:90px;height:90px;border:1px solid #63e6ff;border-radius:50%;display:grid;place-items:center;color:var(--cyan);font-size:28px;box-shadow:0 0 28px #63e6ff25}.scan-line{position:absolute;left:0;right:0;height:2px;background:var(--cyan);box-shadow:0 0 13px var(--cyan);animation:scan 2s linear infinite}@keyframes scan{0%{top:0}100%{top:100%}}.log{font:11px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;background:#070c15;border:1px solid #233550;border-radius:12px;padding:12px;color:#91f5d0;min-height:88px;overflow-wrap:anywhere}.progress{height:6px;background:#24334e;border-radius:99px;overflow:hidden;margin:13px 0}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .4s}.hidden{display:none!important}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{padding:38px 0 24px}h1{letter-spacing:-1.8px}.card{padding:20px}.nav{height:68px}.logo{font-size:21px}.nav-tag{font-size:10px}.side-art{height:135px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="top"><div class="brand">Meta<span>House</span></div><div class="badge">● Request portal</div></header>
-<section class="hero">
-<div class="eyebrow">Impersonation help desk</div>
-<h1>Report. Review. Track.</h1>
-<p>Submit a profile link for review, keep your request reference, and check status from this same browser.</p>
-</section>
-
-<div class="grid">
+<header class="nav"><div class="logo"><div class="logo-icon">M</div>Meta<em>House</em></div><div class="nav-tag">● REQUEST CENTER</div></header>
+<section class="hero"><div class="kicker"><i class="dot"></i> PROFILE REVIEW PORTAL</div><h1>Protect identity.<br>Start a review.</h1><p>Share a profile you believe is impersonating someone, review the payment instructions, and keep a reference in your browser.</p><div class="chips"><span class="chip">⌁ Simple request</span><span class="chip">◷ Track locally</span><span class="chip">◇ Mobile ready</span></div></section>
+<main class="layout">
 <section class="card">
-<h2>Submit a profile request</h2>
-<p class="sub">Use this form only for a profile you believe is impersonating you or someone you are authorized to help.</p>
+<div class="card-title"><div class="icon">↗</div><div><h2>Start a request</h2><div class="muted" style="font-size:12px">Profile details</div></div></div>
+<p class="desc">Please submit only a profile you have a genuine reason to report, such as impersonation.</p>
 <form id="requestForm">
-<label for="profile">Facebook profile URL *</label>
-<input id="profile" type="url" placeholder="https://www.facebook.com/username" required>
-<label for="reason">Reason for review *</label>
-<select id="reason" required>
-<option value="">Choose a reason</option>
-<option>Impersonating me</option>
-<option>Impersonating someone I represent</option>
-<option>Fake identity / misleading profile</option>
-<option>Other concern</option>
-</select>
-<label for="details">Extra details (optional)</label>
-<textarea id="details" rows="3" maxlength="700" placeholder="Briefly explain why you believe this profile is fake."></textarea>
-<label for="email">Your email (for contact, optional)</label>
-<input id="email" type="email" placeholder="you@example.com">
-<div class="price"><div><b>Request review fee</b><div class="tiny">Payment is not verified automatically</div></div><strong>₹10</strong></div>
-<button class="btn primary" type="submit">Continue to payment →</button>
-<p class="tiny">Submitting a request does not submit a report to Facebook and does not guarantee account removal.</p>
-</form>
-</section>
-
-<aside class="card">
-<h2>Payment instructions</h2>
-<p class="sub">Scan the QR code provided by the site owner. Check the payee name and amount in your payment app before paying.</p>
-<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Payment QR code" onerror="this.alt='QR image could not be loaded';this.style.display='none'">
-<div class="price"><span>Amount shown</span><strong>₹10</strong></div>
-<ol class="steps">
-<li>Scan the QR using your UPI app.</li>
-<li>Confirm the recipient and pay ₹10 only if the details are correct.</li>
-<li>Return to the request window and submit your request details.</li>
-<li>Keep the reference number shown after submission.</li>
-</ol>
-<div class="notice">This static demo cannot verify payment or confirm a Facebook report. Do not display a request as paid, submitted to Facebook, or completed unless that has genuinely been confirmed.</div>
-</aside>
+<label class="field-label" for="profile">FACEBOOK PROFILE LINK *</label><input id="profile" type="url" placeholder="https://www.facebook.com/profile..." required>
+<label class="field-label" for="reason">REASON FOR REVIEW *</label><select id="reason" required><option value="">Select a reason</option><option>Impersonating me</option><option>Impersonating someone I represent</option><option>Fake or misleading identity</option><option>Other concern</option></select>
+<div class="price-row"><div><b>Request fee</b><small>Payment details shown next</small></div><div class="price">₹10</div></div>
+<button class="btn primary" type="submit">Continue to payment <span aria-hidden="true">→</span></button>
+<p class="tiny">MetaHouse is an independent service and is not affiliated with Meta or Facebook. Payment does not guarantee that Facebook will remove a profile.</p>
+</form></section>
+<aside class="card side-card"><div class="card-title"><div class="icon">✦</div><div><h2>Request center</h2><div class="muted" style="font-size:12px">Clear steps, visible reference</div></div></div>
+<div class="side-art"><div class="orbit"><div class="shield">⌑</div></div></div>
+<div class="feature"><div class="feature-icon">01</div><div><b>Enter profile link</b><small>Check the URL before continuing.</small></div></div>
+<div class="feature"><div class="feature-icon">02</div><div><b>Review payment details</b><small>Confirm the recipient in your UPI app.</small></div></div>
+<div class="feature"><div class="feature-icon">03</div><div><b>Save your reference</b><small>Request history stays in this browser.</small></div></div>
+<div class="callout">Important: this static website cannot verify a payment or submit a report to Facebook. Any scanning animation is only a visual demo.</div>
+</aside></main>
+<section class="card history"><div class="history-head"><div><h2>Request history</h2><div class="muted" style="font-size:12px">Saved on this device only</div></div><button id="clearHistory" class="btn secondary" type="button">Clear history</button></div><div id="historyList" class="empty">Your saved requests will appear here.</div></section>
+<footer class="footer">MetaHouse · Independent profile review request tool · Not affiliated with Meta/Facebook</footer>
 </div>
 
-<section class="card history">
-<div class="history-head"><div><h2>My request history</h2><p class="sub">Saved only in this browser on this device.</p></div><button id="clearHistory" class="btn secondary" type="button">Clear history</button></div>
-<div id="historyList" class="empty">No requests saved yet.</div>
-</section>
-<footer class="footer">MetaHouse · Independent request tracker · Not affiliated with Meta or Facebook.</footer>
-</div>
+<div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle"><div class="modal-box">
+<div class="modal-head"><h2 id="paymentTitle">Complete payment</h2><button class="close" data-close="paymentModal" aria-label="Close">✕</button></div><p class="modal-sub">Scan the QR code and verify the recipient name in your payment app.</p>
+<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Payment QR code">
+<div class="pay-amount">AMOUNT<b>₹10</b></div>
+<div class="pay-info"><div><span>Payment name</span><strong>Check recipient in UPI app</strong></div><div><span>WhatsApp support</span><strong>Not configured</strong></div><div><span>Reference</span><strong id="payRef">—</strong></div></div>
+<div class="warning">Do not pay if the QR recipient does not match the intended payee. This website cannot verify your payment automatically.</div>
+<button id="paidButton" class="btn primary" type="button">I have paid — continue</button><button class="btn secondary" data-close="paymentModal" type="button" style="width:100%;margin-top:9px">Cancel</button>
+</div></div>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-<div class="modal-box">
-<div class="modal-top"><h2 id="modalTitle">Review request</h2><button class="x" id="closeModal" type="button" aria-label="Close">✕</button></div>
-<p class="sub" id="modalIntro">Review the details before sending.</p>
-<div id="reviewPane">
-<div class="result" id="reviewDetails"></div>
-<div class="notice">No payment verification is performed here. Sending this form only emails your request details; it does not send a report to Facebook.</div>
-<button id="sendRequest" class="btn primary" type="button">Send request details</button>
-<button id="editRequest" class="btn secondary" type="button" style="width:100%;margin-top:9px">Go back</button>
-</div>
-<div id="sendingPane" class="hidden">
-<p id="sendingText">Sending request details…</p><div class="progress"><span id="bar"></span></div><p class="tiny">This is a submission animation, not a Facebook reporting process.</p>
-</div>
-<div id="donePane" class="hidden">
-<h3 id="doneTitle">Request saved</h3><p class="sub" id="doneText"></p><div class="result" id="referenceBox"></div><button class="btn primary" id="doneClose" type="button">View history</button>
-</div>
-</div>
-</div>
-
+<div class="modal" id="progressModal" role="dialog" aria-modal="true" aria-labelledby="progressTitle"><div class="modal-box">
+<div class="modal-head"><h2 id="progressTitle">Request status demo</h2><button class="close" data-close="progressModal" aria-label="Close">✕</button></div><p class="modal-sub">A visual demo only. No Facebook report is being submitted.</p>
+<div class="scanner"><div class="scanner-grid"></div><div class="scan-line"></div><div class="scan-circle">⌑</div></div>
+<div class="log" id="logText">[DEMO] Preparing local request…</div><div class="progress"><span id="progressBar"></span></div>
+<div class="warning">This animation does not contact Facebook, verify payment, or delete an account.</div>
+<button id="finishButton" class="btn primary hidden" type="button">Save request reference</button>
+</div></div>
 <script>
-const FORMSPREE_ID = "mzedobvv";
-const STORAGE_KEY = "metahouse_requests_v1";
-const form = document.getElementById("requestForm");
-const modal = document.getElementById("modal");
-const reviewPane = document.getElementById("reviewPane");
-const sendingPane = document.getElementById("sendingPane");
-const donePane = document.getElementById("donePane");
-let currentRequest = null;
-
-function getRequests(){ try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; } }
-function saveRequests(items){ localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
-function makeRef(){ return "MH-" + new Date().toISOString().slice(0,10).replaceAll("-","") + "-" + Math.random().toString(36).slice(2,7).toUpperCase(); }
-function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
-function renderHistory(){
-  const list = document.getElementById("historyList"), items = getRequests();
-  if(!items.length){ list.className="empty"; list.textContent="No requests saved yet."; return; }
-  list.className="";
-  list.innerHTML = items.slice().reverse().map(r => `<div class="item"><div><strong>${escapeHtml(r.ref)}</strong><div class="tiny">${escapeHtml(r.date)} · ${escapeHtml(r.profile)}</div><div class="tiny">${escapeHtml(r.reason)}</div></div><span class="status">${escapeHtml(r.status)}</span></div>`).join("");
-}
-function openModal(){ modal.classList.add("open"); document.body.style.overflow="hidden"; }
-function closeModal(){ modal.classList.remove("open"); document.body.style.overflow=""; }
-function showPane(pane){ [reviewPane,sendingPane,donePane].forEach(p=>p.classList.add("hidden")); pane.classList.remove("hidden"); }
-form.addEventListener("submit",e=>{
-  e.preventDefault();
-  const profile=document.getElementById("profile").value.trim();
-  try { const u=new URL(profile); if(!["facebook.com","www.facebook.com","m.facebook.com","fb.com","www.fb.com"].includes(u.hostname.toLowerCase())) throw new Error(); }
-  catch { alert("Please enter a valid Facebook profile URL."); return; }
-  currentRequest={
-    ref:makeRef(), date:new Date().toLocaleString(), profile,
-    reason:document.getElementById("reason").value,
-    details:document.getElementById("details").value.trim(),
-    email:document.getElementById("email").value.trim(),
-    status:"Request details not yet sent"
-  };
-  document.getElementById("reviewDetails").textContent =
-    "Reference: "+currentRequest.ref+"\nProfile: "+currentRequest.profile+"\nReason: "+currentRequest.reason+
-    "\nDetails: "+(currentRequest.details||"Not provided")+"\nContact email: "+(currentRequest.email||"Not provided")+
-    "\nFee: ₹10 (not verified by this website)";
-  document.getElementById("modalIntro").textContent="Check that the profile URL and reason are correct.";
-  showPane(reviewPane); openModal();
-});
-document.getElementById("closeModal").addEventListener("click",closeModal);
-document.getElementById("editRequest").addEventListener("click",closeModal);
-document.getElementById("doneClose").addEventListener("click",closeModal);
-modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
-document.getElementById("sendRequest").addEventListener("click",async()=>{
-  if(!currentRequest)return;
-  showPane(sendingPane);
-  const bar=document.getElementById("bar"), sendingText=document.getElementById("sendingText");
-  let pct=0; const timer=setInterval(()=>{pct=Math.min(90,pct+Math.random()*16);bar.style.width=pct+"%";},180);
-  const payload={
-    subject:"MetaHouse request "+currentRequest.ref,
-    reference:currentRequest.ref,
-    submitted_at:currentRequest.date,
-    facebook_profile_url:currentRequest.profile,
-    reason:currentRequest.reason,
-    details:currentRequest.details || "Not provided",
-    contact_email:currentRequest.email || "Not provided",
-    payment_status:"NOT VERIFIED — review manually; do not assume payment",
-    notice:"This form submission is not a Facebook report and does not verify payment."
-  };
-  try{
-    const res=await fetch("https://formspree.io/f/"+encodeURIComponent(FORMSPREE_ID),{
-      method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(payload)
-    });
-    const data=await res.json().catch(()=>({}));
-    clearInterval(timer);bar.style.width="100%";
-    if(!res.ok)throw new Error(data.errors?.map(x=>x.message).join(", ")||"Formspree submission failed.");
-    currentRequest.status="Request details emailed — payment unverified";
-    currentRequest.emailSent=true;
-    document.getElementById("doneTitle").textContent="Request details sent";
-    document.getElementById("doneText").textContent="Your details were sent to the configured Formspree form. Payment has not been verified and no Facebook report was submitted.";
-  }catch(err){
-    clearInterval(timer);
-    currentRequest.status="Saved locally — email not sent";
-    currentRequest.emailSent=false;
-    document.getElementById("doneTitle").textContent="Saved on this device";
-    document.getElementById("doneText").textContent="Email submission did not succeed. Your request is saved in this browser; please check your Formspree setup and internet connection.";
-  }
-  const items=getRequests();items.push(currentRequest);saveRequests(items);renderHistory();
-  document.getElementById("referenceBox").textContent="Reference: "+currentRequest.ref+"\nStatus: "+currentRequest.status;
-  showPane(donePane);
-});
-document.getElementById("clearHistory").addEventListener("click",()=>{
-  if(confirm("Clear all request history saved in this browser? This cannot be undone.")){localStorage.removeItem(STORAGE_KEY);renderHistory();}
-});
-renderHistory();
+const FORMSPREE_ID="mzedobvv";
+const QR_URL="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg";
+const KEY="metahouse_requests_v2";
+let requestNow=null;
+const $=id=>document.getElementById(id);
+function all(){try{return JSON.parse(localStorage.getItem(KEY)||"[]")}catch{return []}}
+function save(items){localStorage.setItem(KEY,JSON.stringify(items))}
+function ref(){return "MH-"+new Date().toISOString().slice(0,10).replaceAll("-","")+"-"+Math.random().toString(36).slice(2,7).toUpperCase()}
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function show(id){$(id).classList.add("open");document.body.style.overflow="hidden"}
+function hide(id){$(id).classList.remove("open");if(!document.querySelector(".modal.open"))document.body.style.overflow=""}
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hide(b.dataset.close)));
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)hide(m.id)}));
+function render(){const items=all(),box=$("historyList");if(!items.length){box.className="empty";box.textContent="Your saved requests will appear here.";return}box.className="";box.innerHTML=items.slice().reverse().map(r=>`<div class="entry"><div><strong>${esc(r.ref)}</strong><small>${esc(r.date)} · ${esc(r.profile)}</small><small>${esc(r.reason)}</small></div><span class="status">${esc(r.status)}</span></div>`).join("")}
+$("requestForm").addEventListener("submit",e=>{e.preventDefault();const profile=$("profile").value.trim();try{const u=new URL(profile);if(!/(^|\.)facebook\.com$|(^|\.)fb\.com$/i.test(u.hostname))throw 0}catch{alert("Please enter a valid Facebook profile URL.");return}
+requestNow={ref:ref(),date:new Date().toLocaleString(),profile,reason:$("reason").value,status:"Payment unverified — awaiting review"};$("payRef").textContent=requestNow.ref;show("paymentModal")});
+$("paidButton").addEventListener("click",()=>{hide("paymentModal");show("progressModal");$("finishButton").classList.add("hidden");$("progressBar").style.width="0%";const lines=["[DEMO] Request reference created…","[DEMO] Preparing profile details…","[DEMO] Simulated review animation…","[DEMO] No Facebook report was sent.","[DEMO] Payment has not been verified."];let i=0;const bar=$("progressBar"),log=$("logText");log.textContent=lines[0];const timer=setInterval(()=>{i++;bar.style.width=(i/lines.length*100)+"%";log.textContent=lines.slice(0,i+1).join("\n");if(i>=lines.length-1){clearInterval(timer);requestNow.status="Payment unverified — request saved locally";const items=all();items.push(requestNow);save(items);render();$("finishButton").classList.remove("hidden")}},850)});
+$("finishButton").addEventListener("click",()=>{hide("progressModal");render();document.querySelector(".history").scrollIntoView({behavior:"smooth",block:"start"})});
+$("clearHistory").addEventListener("click",()=>{if(confirm("Clear all MetaHouse history saved in this browser?")){localStorage.removeItem(KEY);render()}});
+render();
 </script>
-</body>
-</html>
+</body></html>
