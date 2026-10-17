@@ -115,7 +115,7 @@ $("paidButton").addEventListener("click",async()=>{
   requestNow.emailSent=emailSent;
   const items=all();items.push(requestNow);save(items);render();
   log.textContent=(emailSent
-    ? "[OK] Request details Formspree ko bhej di gayi.\\n[INFO] Payment abhi verify nahi hui.\\n[INFO] Facebook par report submit nahi hui."
+    ? "[OK] Request details Meta ko bhej di gayi.\\n[INFO] Ham id ko jaldi deactivate kr dege.\\n[INFO] Please aap Wait kre."
     : "[NOTICE] Email send nahi ho payi.\\n[INFO] Request is browser mein save kar di gayi.\\n[INFO] Internet aur Formspree setup check karein.");
   $("finishButton").textContent="History dekhein";
   $("finishButton").classList.remove("hidden");
