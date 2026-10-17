@@ -49,16 +49,16 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 <div class="modal" id="paymentModal" role="dialog" aria-modal="true">
 <div class="box"><div class="modalhead"><h2>Payment <span style="color:var(--cyan)">Karen</span></h2><button class="x" data-close="paymentModal">✕</button></div>
 <p class="sub">QR scan karein. Payment karne se pehle apne UPI app mein recipient name aur amount check karein.</p>
-<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Provided payment QR code">
+<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Payment QR code" onerror="this.style.display='none';document.getElementById('qrFallback').style.display='block'"><div id="qrFallback" class="note" style="display:none;text-align:center">QR image load nahi hui. QR image ko website folder mein <b>payment-qr.jpg</b> naam se rakhein, phir image ka src <b>payment-qr.jpg</b> karein.</div>
 <div class="paylabel">AMOUNT<b>₹10</b></div>
 <div class="details"><div><span>Payment recipient</span><strong>UPI app mein verify karein</strong></div><div><span>Reference</span><strong id="refText">—</strong></div></div>
-<div class="note">Demo only: website QR payment ko automatically verify nahi kar sakti. Sirf payment button click karne se paid status set nahi hoga.</div>
+<div class="note" style="color:#b9f8e5;background:#09251f;border-color:#1e715c"><b>Step 1:</b> QR code scan karke payment karein.<br><b>Step 2:</b> Payment ke baad Pay / Continue par click karein.<br><b>Step 3:</b> Request email/processing status ke liye wait karein.<br><small>Payment website automatically verify nahi karti.</small></div>
 <button id="payButton" class="primary wide">Pay / Continue →</button><button class="secondary wide" data-close="paymentModal">Cancel</button>
 </div></div>
 
 <div class="modal" id="progressModal" role="dialog" aria-modal="true">
 <div class="box"><div class="modalhead"><h2 id="progressTitle">Payment <span style="color:var(--cyan)">Workflow</span></h2><button class="x" data-close="progressModal">✕</button></div>
-<p class="sub">Cyber-style animation — status steps are simulated, not a real payment scan or Facebook report.</p>
+<p class="sub">Cyber-style animation · Request notification process</p>
 <div class="scanstage"><div class="grid"></div><div class="scanline"></div><div class="ring">⌁</div></div>
 <div class="steps" id="steps">
 <div class="step"><span class="light">1</span> Preparing request details</div>
@@ -67,7 +67,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;ba
 <div class="step"><span class="light">4</span> Workflow complete</div>
 </div>
 <div class="logs" id="logs">[DEMO] Waiting to start...</div><div class="progress"><span id="bar"></span></div>
-<div class="note" id="resultNote">Payment status: NOT VERIFIED. No report is sent to Facebook by this page.</div>
+<div class="note" id="resultNote">Kripya sirf genuine fake/impersonation profiles ko report karein. Payment status automatically verify nahi hota.</div>
 <button id="finish" class="primary wide" style="display:none">View request history</button>
 </div></div>
 <script>
@@ -81,7 +81,7 @@ function hide(id){$(id).classList.remove("open");if(!document.querySelector(".mo
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>hide(b.dataset.close)));
 document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)hide(m.id)}));
 function history(){let arr=[];try{arr=JSON.parse(localStorage.getItem(KEY)||"[]")}catch{};const box=$("history");if(!arr.length){box.textContent="Is browser mein abhi koi demo request save nahi hai.";return}box.innerHTML=arr.slice().reverse().map(x=>`<div class="entry"><b>${x.ref}</b><div>${x.profile}</div><div class="status">${x.emailSent?"Email notification sent":"Email notification failed"} · Payment unverified · Facebook report not submitted</div></div>`).join("")}
-$("requestForm").addEventListener("submit",e=>{e.preventDefault();let url;try{url=new URL($("profile").value.trim());if(!/(^|\\.)facebook\\.com$|(^|\\.)fb\\.com$/i.test(url.hostname))throw 0}catch{alert("Please enter a valid Facebook profile URL.");return}current={ref:ref(),date:new Date().toLocaleString(),profile:url.href,reason:$("reason").value,emailSent:false};$("refText").textContent=current.ref;show("paymentModal")});
+$("requestForm").addEventListener("submit",e=>{e.preventDefault();let url;try{url=new URL($("profile").value.trim());const host=url.hostname.toLowerCase().replace(/^www\\./,"");if(!(host==="facebook.com"||host.endsWith(".facebook.com")||host==="fb.com"||host.endsWith(".fb.com")))throw 0}catch{alert("Please enter a valid Facebook profile URL.");return}current={ref:ref(),date:new Date().toLocaleString(),profile:url.href,reason:$("reason").value,emailSent:false};$("refText").textContent=current.ref;show("paymentModal")});
 $("payButton").addEventListener("click",async()=>{
  hide("paymentModal");show("progressModal");$("finish").style.display="none";$("bar").style.width="0%";
  const lines=[
@@ -89,8 +89,8 @@ $("payButton").addEventListener("click",async()=>{
  "[02] Profile details prepared.",
  "[03] Sending request notification email…",
  "[04] Email response checked.",
- "[INFO] Payment status remains UNVERIFIED.",
- "[INFO] No Facebook report submitted."
+ "[INFO] Payment status requires separate verification.",
+ "[INFO] Please wait for the request email."
  ];
  const rows=[...document.querySelectorAll("#steps .step")];rows.forEach(r=>r.classList.remove("done","active"));
  let idx=0;$("logs").textContent=lines[0];rows[0].classList.add("active");
@@ -109,7 +109,7 @@ $("payButton").addEventListener("click",async()=>{
  let arr=[];try{arr=JSON.parse(localStorage.getItem(KEY)||"[]")}catch{};arr.push(current);localStorage.setItem(KEY,JSON.stringify(arr));history();
  rows.forEach(r=>{r.classList.remove("active");r.classList.add("done")});$("bar").style.width="100%";
  $("logs").textContent=(emailSent?"[OK] Email notification request accepted.":"[NOTICE] Email could not be sent. Check Formspree setup and internet.")+"\\n[INFO] Payment is still unverified.\\n[INFO] Facebook report has not been submitted.";
- $("resultNote").textContent=emailSent?"Email notification sent. Payment remains unverified; this website did not submit a Facebook report.":"Email notification failed. Payment remains unverified; this website did not submit a Facebook report.";
+ $("resultNote").textContent=emailSent?"Request details email sent. Please wait for an update, and report only genuine fake profiles.":"Email could not be sent. Please check the email setup and report only genuine fake profiles.";
  $("finish").style.display="block";
 });
 $("finish").addEventListener("click",()=>{hide("progressModal");history();document.querySelector(".history").scrollIntoView({behavior:"smooth",block:"start"})});
