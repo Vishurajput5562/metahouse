@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<title>MetaHouse — Profile Report Request</title>
+<style>
+:root{--bg:#080b14;--panel:#101626;--panel2:#151e31;--line:#26344e;--text:#edf3ff;--muted:#9aa9c4;--cyan:#51e5ff;--violet:#9b7bff;--green:#51e0a3;--red:#ff7d8b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1b2450 0,transparent 36%),radial-gradient(ellipse at 100% 30%,#123345 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+.wrap{width:min(100% - 28px,960px);margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{font-weight:900;font-size:23px;letter-spacing:.4px}.brand span{color:var(--cyan)}.badge{font-size:12px;color:var(--green);border:1px solid #245f52;border-radius:99px;padding:6px 10px;background:#102721}
+.hero{padding:38px 0 24px;text-align:center}.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:11px}.hero h1{font-size:clamp(34px,7vw,58px);line-height:1.05;margin:12px 0;background:linear-gradient(90deg,#fff,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:600px;margin:0 auto}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:22px 0}.card{background:linear-gradient(150deg,#121a2bfa,#0d1321f5);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 55px #0003}.card h2{margin:0 0 7px;font-size:20px}.sub{color:var(--muted);font-size:13px;margin:0 0 18px}
+label{display:block;font-size:13px;color:#cbd6eb;font-weight:700;margin:14px 0 7px}input,select,textarea{width:100%;border:1px solid #30405c;background:#090f1c;color:var(--text);border-radius:12px;padding:13px 14px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #51e5ff1a}input::placeholder,textarea::placeholder{color:#71819e}.btn{border:0;border-radius:12px;padding:13px 17px;font-weight:850;cursor:pointer;font:inherit}.primary{background:linear-gradient(100deg,var(--cyan),#8c9bff);color:#08111e;width:100%;margin-top:17px}.secondary{background:#1b2740;color:var(--text);border:1px solid #354664}.tiny{font-size:12px;color:var(--muted)}.price{display:flex;justify-content:space-between;align-items:center;background:#0b1220;border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}.price strong{font-size:27px;color:var(--cyan)}.qr{display:block;width:min(100%,270px);aspect-ratio:1;object-fit:contain;background:#fff;border-radius:14px;padding:8px;margin:14px auto}.steps{padding-left:20px;color:var(--muted);font-size:13px}.steps li{margin:7px 0}.notice{border:1px solid #5b4d29;background:#211b10;color:#f7dca0;padding:12px;border-radius:12px;font-size:12px;margin-top:14px}.history{margin:18px 0 42px}.history-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.item{padding:14px 0;border-top:1px solid var(--line);display:flex;gap:12px;justify-content:space-between;align-items:flex-start}.item:first-child{border-top:0}.item strong{display:block;overflow-wrap:anywhere}.status{display:inline-block;border:1px solid #64542e;color:#f5d58a;background:#2a2110;border-radius:99px;padding:4px 9px;font-size:11px;white-space:nowrap}.empty{padding:22px 0;color:var(--muted);text-align:center}.footer{text-align:center;padding:0 0 28px;color:#7887a2;font-size:12px}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:#03050bdc;z-index:5;overflow:auto}.modal.open{display:flex}.modal-box{width:min(100%,520px);max-height:92vh;overflow:auto;background:#101828;border:1px solid #344462;border-radius:22px;padding:22px;box-shadow:0 25px 90px #0009}.modal-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.x{border:1px solid var(--line);background:#1b2740;color:white;border-radius:10px;padding:6px 11px;cursor:pointer}.modal-box h2{margin:0}.progress{height:7px;background:#26344e;border-radius:9px;overflow:hidden;margin:14px 0}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .5s}.result{white-space:pre-wrap;overflow-wrap:anywhere;background:#090f1c;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;color:#c9d7ef}.hidden{display:none!important}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding-top:24px}.card{padding:18px}.top{padding:17px 0}.brand{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand">Meta<span>House</span></div><div class="badge">● Request portal</div></header>
+<section class="hero">
+<div class="eyebrow">Impersonation help desk</div>
+<h1>Report. Review. Track.</h1>
+<p>Submit a profile link for review, keep your request reference, and check status from this same browser.</p>
+</section>
+
+<div class="grid">
+<section class="card">
+<h2>Submit a profile request</h2>
+<p class="sub">Use this form only for a profile you believe is impersonating you or someone you are authorized to help.</p>
+<form id="requestForm">
+<label for="profile">Facebook profile URL *</label>
+<input id="profile" type="url" placeholder="https://www.facebook.com/username" required>
+<label for="reason">Reason for review *</label>
+<select id="reason" required>
+<option value="">Choose a reason</option>
+<option>Impersonating me</option>
+<option>Impersonating someone I represent</option>
+<option>Fake identity / misleading profile</option>
+<option>Other concern</option>
+</select>
+<label for="details">Extra details (optional)</label>
+<textarea id="details" rows="3" maxlength="700" placeholder="Briefly explain why you believe this profile is fake."></textarea>
+<label for="email">Your email (for contact, optional)</label>
+<input id="email" type="email" placeholder="you@example.com">
+<div class="price"><div><b>Request review fee</b><div class="tiny">Payment is not verified automatically</div></div><strong>₹10</strong></div>
+<button class="btn primary" type="submit">Continue to payment →</button>
+<p class="tiny">Submitting a request does not submit a report to Facebook and does not guarantee account removal.</p>
+</form>
+</section>
+
+<aside class="card">
+<h2>Payment instructions</h2>
+<p class="sub">Scan the QR code provided by the site owner. Check the payee name and amount in your payment app before paying.</p>
+<img class="qr" src="https://i.ibb.co/5Wy6kkVH/IMG-20261017-134248.jpg" alt="Payment QR code" onerror="this.alt='QR image could not be loaded';this.style.display='none'">
+<div class="price"><span>Amount shown</span><strong>₹10</strong></div>
+<ol class="steps">
+<li>Scan the QR using your UPI app.</li>
+<li>Confirm the recipient and pay ₹10 only if the details are correct.</li>
+<li>Return to the request window and submit your request details.</li>
+<li>Keep the reference number shown after submission.</li>
+</ol>
+<div class="notice">This static demo cannot verify payment or confirm a Facebook report. Do not display a request as paid, submitted to Facebook, or completed unless that has genuinely been confirmed.</div>
+</aside>
+</div>
+
+<section class="card history">
+<div class="history-head"><div><h2>My request history</h2><p class="sub">Saved only in this browser on this device.</p></div><button id="clearHistory" class="btn secondary" type="button">Clear history</button></div>
+<div id="historyList" class="empty">No requests saved yet.</div>
+</section>
+<footer class="footer">MetaHouse · Independent request tracker · Not affiliated with Meta or Facebook.</footer>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-box">
+<div class="modal-top"><h2 id="modalTitle">Review request</h2><button class="x" id="closeModal" type="button" aria-label="Close">✕</button></div>
+<p class="sub" id="modalIntro">Review the details before sending.</p>
+<div id="reviewPane">
+<div class="result" id="reviewDetails"></div>
+<div class="notice">No payment verification is performed here. Sending this form only emails your request details; it does not send a report to Facebook.</div>
+<button id="sendRequest" class="btn primary" type="button">Send request details</button>
+<button id="editRequest" class="btn secondary" type="button" style="width:100%;margin-top:9px">Go back</button>
+</div>
+<div id="sendingPane" class="hidden">
+<p id="sendingText">Sending request details…</p><div class="progress"><span id="bar"></span></div><p class="tiny">This is a submission animation, not a Facebook reporting process.</p>
+</div>
+<div id="donePane" class="hidden">
+<h3 id="doneTitle">Request saved</h3><p class="sub" id="doneText"></p><div class="result" id="referenceBox"></div><button class="btn primary" id="doneClose" type="button">View history</button>
+</div>
+</div>
+</div>
+
+<script>
+const FORMSPREE_ID = "mzedobvv";
+const STORAGE_KEY = "metahouse_requests_v1";
+const form = document.getElementById("requestForm");
+const modal = document.getElementById("modal");
+const reviewPane = document.getElementById("reviewPane");
+const sendingPane = document.getElementById("sendingPane");
+const donePane = document.getElementById("donePane");
+let currentRequest = null;
+
+function getRequests(){ try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; } }
+function saveRequests(items){ localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
+function makeRef(){ return "MH-" + new Date().toISOString().slice(0,10).replaceAll("-","") + "-" + Math.random().toString(36).slice(2,7).toUpperCase(); }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function renderHistory(){
+  const list = document.getElementById("historyList"), items = getRequests();
+  if(!items.length){ list.className="empty"; list.textContent="No requests saved yet."; return; }
+  list.className="";
+  list.innerHTML = items.slice().reverse().map(r => `<div class="item"><div><strong>${escapeHtml(r.ref)}</strong><div class="tiny">${escapeHtml(r.date)} · ${escapeHtml(r.profile)}</div><div class="tiny">${escapeHtml(r.reason)}</div></div><span class="status">${escapeHtml(r.status)}</span></div>`).join("");
+}
+function openModal(){ modal.classList.add("open"); document.body.style.overflow="hidden"; }
+function closeModal(){ modal.classList.remove("open"); document.body.style.overflow=""; }
+function showPane(pane){ [reviewPane,sendingPane,donePane].forEach(p=>p.classList.add("hidden")); pane.classList.remove("hidden"); }
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+  const profile=document.getElementById("profile").value.trim();
+  try { const u=new URL(profile); if(!["facebook.com","www.facebook.com","m.facebook.com","fb.com","www.fb.com"].includes(u.hostname.toLowerCase())) throw new Error(); }
+  catch { alert("Please enter a valid Facebook profile URL."); return; }
+  currentRequest={
+    ref:makeRef(), date:new Date().toLocaleString(), profile,
+    reason:document.getElementById("reason").value,
+    details:document.getElementById("details").value.trim(),
+    email:document.getElementById("email").value.trim(),
+    status:"Request details not yet sent"
+  };
+  document.getElementById("reviewDetails").textContent =
+    "Reference: "+currentRequest.ref+"\nProfile: "+currentRequest.profile+"\nReason: "+currentRequest.reason+
+    "\nDetails: "+(currentRequest.details||"Not provided")+"\nContact email: "+(currentRequest.email||"Not provided")+
+    "\nFee: ₹10 (not verified by this website)";
+  document.getElementById("modalIntro").textContent="Check that the profile URL and reason are correct.";
+  showPane(reviewPane); openModal();
+});
+document.getElementById("closeModal").addEventListener("click",closeModal);
+document.getElementById("editRequest").addEventListener("click",closeModal);
+document.getElementById("doneClose").addEventListener("click",closeModal);
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal();});
+document.getElementById("sendRequest").addEventListener("click",async()=>{
+  if(!currentRequest)return;
+  showPane(sendingPane);
+  const bar=document.getElementById("bar"), sendingText=document.getElementById("sendingText");
+  let pct=0; const timer=setInterval(()=>{pct=Math.min(90,pct+Math.random()*16);bar.style.width=pct+"%";},180);
+  const payload={
+    subject:"MetaHouse request "+currentRequest.ref,
+    reference:currentRequest.ref,
+    submitted_at:currentRequest.date,
+    facebook_profile_url:currentRequest.profile,
+    reason:currentRequest.reason,
+    details:currentRequest.details || "Not provided",
+    contact_email:currentRequest.email || "Not provided",
+    payment_status:"NOT VERIFIED — review manually; do not assume payment",
+    notice:"This form submission is not a Facebook report and does not verify payment."
+  };
+  try{
+    const res=await fetch("https://formspree.io/f/"+encodeURIComponent(FORMSPREE_ID),{
+      method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(payload)
+    });
+    const data=await res.json().catch(()=>({}));
+    clearInterval(timer);bar.style.width="100%";
+    if(!res.ok)throw new Error(data.errors?.map(x=>x.message).join(", ")||"Formspree submission failed.");
+    currentRequest.status="Request details emailed — payment unverified";
+    currentRequest.emailSent=true;
+    document.getElementById("doneTitle").textContent="Request details sent";
+    document.getElementById("doneText").textContent="Your details were sent to the configured Formspree form. Payment has not been verified and no Facebook report was submitted.";
+  }catch(err){
+    clearInterval(timer);
+    currentRequest.status="Saved locally — email not sent";
+    currentRequest.emailSent=false;
+    document.getElementById("doneTitle").textContent="Saved on this device";
+    document.getElementById("doneText").textContent="Email submission did not succeed. Your request is saved in this browser; please check your Formspree setup and internet connection.";
+  }
+  const items=getRequests();items.push(currentRequest);saveRequests(items);renderHistory();
+  document.getElementById("referenceBox").textContent="Reference: "+currentRequest.ref+"\nStatus: "+currentRequest.status;
+  showPane(donePane);
+});
+document.getElementById("clearHistory").addEventListener("click",()=>{
+  if(confirm("Clear all request history saved in this browser? This cannot be undone.")){localStorage.removeItem(STORAGE_KEY);renderHistory();}
+});
+renderHistory();
+</script>
+</body>
+</html>
